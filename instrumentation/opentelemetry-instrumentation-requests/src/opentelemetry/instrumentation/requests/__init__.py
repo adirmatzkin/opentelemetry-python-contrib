@@ -152,11 +152,11 @@ def _instrument(
             metric_labels[SpanAttributes.HTTP_SCHEME] = parsed_url.scheme
             if parsed_url.hostname:
                 metric_labels[SpanAttributes.HTTP_HOST] = parsed_url.hostname
-                metric_labels[
-                    SpanAttributes.NET_PEER_NAME
-                ] = parsed_url.hostname
+                metric_labels[SpanAttributes.NET_PEER_NAME] = parsed_url.hostname
+                span_attributes[SpanAttributes.NET_PEER_NAME] = parsed_url.hostname
             if parsed_url.port:
                 metric_labels[SpanAttributes.NET_PEER_PORT] = parsed_url.port
+                span_attributes[SpanAttributes.NET_PEER_PORT] = parsed_url.port
         except ValueError:
             pass
 
